@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorThemeGrey"
+    xmlns:my_font="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.fruitland.fruitland.widget"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        layout="@layout/custom_actionbar"
+        android:layout_height="50dp"
+        android:id="@+id/actionbar"
+        android:layout_alignParentTop="true"
+        android:layout_width="fill_parent" />
+
+    <!--<LinearLayout
+        android:layout_centerInParent="true"
+        android:background="@color/colorWhite"
+        android:layout_margin="20dp"
+        android:orientation="vertical"
+        android:id="@+id/signlayout"
+        android:layout_below="@+id/actionbar"
+        android:layout_above="@+id/done"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"></LinearLayout>
+-->
+
+    <android.gesture.GestureOverlayView
+        android:id="@+id/signaturePad"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/actionbar"
+        android:layout_above="@+id/done"
+        android:background="#FFFFFF"
+        android:eventsInterceptionEnabled="true"
+        android:fadeEnabled="false"
+        android:gestureColor="#000000"
+        android:gestureStrokeLengthThreshold="0.1"
+        android:gestureStrokeWidth="2"
+        android:gestureStrokeType="multiple"
+        android:layout_margin="20dp"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/signHint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30dp"
+            android:layout_gravity="center"
+            android:textColor="#cbc9c9"
+            android:text="Draw Signature" />
+
+    </android.gesture.GestureOverlayView>
+
+    <com.fruitland.fruitland.widget.MyFontButton
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/text_size16"
+        android:layout_margin="20dp"
+        android:id="@+id/clear"
+
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:background="@drawable/red_box_radius"
+        my_font:typeface="futura_med.ttf"
+        android:text="Clear" />
+
+
+    <com.fruitland.fruitland.widget.MyFontButton
+        android:layout_width="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="20dp"
+        android:id="@+id/done"
+
+        android:layout_height="35dp"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/text_size16"
+        android:background="@drawable/green_box_radius"
+        my_font:typeface="futura_med.ttf"
+        android:text="Done" />
+
+
+</RelativeLayout>

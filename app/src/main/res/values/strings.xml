@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">FruitLand</string>
+    <string name="toast_no_internet">Please check the internet connectivity</string>
+    <string name="dialog_no_inter_message">You have not active internet connection.</string>
+    <string name="no_internet">No Internet Connection</string>
+
+</resources>

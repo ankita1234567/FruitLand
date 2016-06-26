@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:my_font="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorThemeGrey"
+    android:orientation="vertical"
+    tools:context="com.fruitland.fruitland.widget">
+
+    <include
+        layout="@layout/custom_actionbar"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp" />
+<ScrollView
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:background="@drawable/lightgrey_box_5radius"
+        android:orientation="horizontal"
+        android:weightSum="10">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="760dp"
+            android:layout_weight="0.3"
+            android:background="@drawable/red_box_10leftradius" />
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_margin="10dp"
+            android:layout_weight="9.7"
+            android:orientation="vertical">
+
+            <com.fruitland.fruitland.widget.MyEditTextView
+                android:id="@+id/name"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/white_box_radius"
+                android:drawableLeft="@drawable/profile"
+                android:drawablePadding="15dp"
+                android:hint="Name"
+                android:paddingBottom="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="20dp"
+                android:paddingTop="10dp"
+                android:singleLine="true"
+                android:textColor="@color/colorTextDarkGrey"
+                android:textSize="@dimen/text_size16"
+                my_font:typeface="futura_med.ttf" />
+
+            <com.fruitland.fruitland.widget.MyEditTextView
+                android:id="@+id/contact"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/white_box_radius"
+                android:drawableLeft="@drawable/call"
+                android:drawablePadding="15dp"
+                android:hint="Mobile No"
+                android:paddingBottom="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="20dp"
+                android:paddingTop="10dp"
+                android:singleLine="true"
+                android:textColor="@color/colorTextDarkGrey"
+                android:textSize="@dimen/text_size16"
+                my_font:typeface="futura_med.ttf" />
+
+            <com.fruitland.fruitland.widget.MyEditTextView
+                android:id="@+id/address"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/white_box_radius"
+                android:drawableLeft="@drawable/location"
+                android:drawablePadding="15dp"
+                android:hint="Detail Address"
+                android:paddingBottom="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="20dp"
+                android:paddingTop="10dp"
+                android:singleLine="true"
+                android:textColor="@color/colorTextDarkGrey"
+                android:textSize="@dimen/text_size16"
+                my_font:typeface="futura_med.ttf" />
+
+
+            <Spinner
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="60dp"
+                android:singleLine="true"
+                android:id="@+id/areaspinner"
+                android:layout_marginLeft="5dp"
+                android:entries="@array/areaarray"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="15dp"
+                android:paddingRight="10dp"
+                android:background="@drawable/map"
+                android:textColor="@color/colorTextGrey"
+                android:textSize="@dimen/text_size14"
+
+                />
+
+
+            <com.fruitland.fruitland.widget.MyTextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="15dp"
+                android:drawableLeft="@drawable/basket"
+                android:drawablePadding="15dp"
+                android:paddingBottom="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="20dp"
+                android:paddingTop="10dp"
+                android:singleLine="true"
+                android:text="Package"
+                android:textColor="@color/colorTextDarkGrey"
+                android:textSize="@dimen/text_size16"
+                my_font:typeface="futura_med.ttf" />
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
+
+                <com.fruitland.fruitland.widget.MyFontButton
+                    android:id="@+id/ess"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:background="@drawable/red_box_radius"
+                    android:text="The Essentials"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="8sp"
+                    my_font:typeface="futura_med.ttf" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1" />
+
+                <com.fruitland.fruitland.widget.MyFontButton
+                    android:id="@+id/med"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:background="@drawable/green_box_radius"
+                    android:text="Grand Medley"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="8sp"
+                    my_font:typeface="futura_med.ttf" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1" />
+
+                <com.fruitland.fruitland.widget.MyFontButton
+                    android:id="@+id/exo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:background="@drawable/yellow_box_radius"
+                    android:text="Exotica"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="8sp"
+                    my_font:typeface="futura_med.ttf" />
+
+
+            </LinearLayout>
+
+            <com.fruitland.fruitland.widget.MyEditTextView
+                android:id="@+id/fruitsavoided"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/white_box_radius"
+                android:drawableLeft="@drawable/fruitavoided"
+                android:drawablePadding="15dp"
+                android:hint="Fruits Avoided"
+                android:paddingBottom="10dp"
+                android:editable="false"
+                android:paddingLeft="10dp"
+                android:paddingRight="20dp"
+                android:paddingTop="10dp"
+                android:singleLine="true"
+                android:textColor="@color/colorTextDarkGrey"
+                android:textSize="@dimen/text_size16"
+                my_font:typeface="futura_med.ttf" />
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <com.fruitland.fruitland.widget.MyCheckBox
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Apple"
+                    android:id="@+id/applecheck"
+                    android:textColor="@color/colorTextDarkGrey" />
+
+                <com.fruitland.fruitland.widget.MyCheckBox
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Pear"
+                    android:id="@+id/peercheck"
+                    android:textColor="@color/colorTextDarkGrey" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <com.fruitland.fruitland.widget.MyCheckBox
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Pomgranate"
+                    android:id="@+id/pomecheck"
+                    android:textColor="@color/colorTextDarkGrey" />
+
+                <com.fruitland.fruitland.widget.MyCheckBox
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Chikoo"
+                    android:id="@+id/chikoocheck"
+                    android:textColor="@color/colorTextDarkGrey" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <com.fruitland.fruitland.widget.MyCheckBox
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:id="@+id/sweetlimecheck"
+                    android:text="SweetLime"
+                    android:textColor="@color/colorTextDarkGrey" />
+
+                <com.fruitland.fruitland.widget.MyCheckBox
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:id="@+id/orangecheck"
+                    android:text="Orange"
+                    android:textColor="@color/colorTextDarkGrey" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <com.fruitland.fruitland.widget.MyCheckBox
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Muskmelon"
+                    android:id="@+id/muskmeloncheck"
+                    android:textColor="@color/colorTextDarkGrey" />
+
+                <com.fruitland.fruitland.widget.MyCheckBox
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Papaya"
+                    android:id="@+id/papayacheck"
+                    android:textColor="@color/colorTextDarkGrey" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <com.fruitland.fruitland.widget.MyCheckBox
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Watermelon"
+                    android:id="@+id/watermeloncheck"
+                    android:textColor="@color/colorTextDarkGrey" />
+
+                <com.fruitland.fruitland.widget.MyCheckBox
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Litchi"
+                    android:id="@+id/lichicheck"
+                    android:textColor="@color/colorTextDarkGrey" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <com.fruitland.fruitland.widget.MyCheckBox
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:id="@+id/jammoncheck"
+                    android:text="Jammon"
+                    android:textColor="@color/colorTextDarkGrey" />
+
+                <com.fruitland.fruitland.widget.MyCheckBox
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Mango"
+                    android:id="@+id/mangocheck"
+                    android:textColor="@color/colorTextDarkGrey" />
+            </LinearLayout>
+
+            <com.fruitland.fruitland.widget.MyFontButton
+                android:id="@+id/btn_addcustomer"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="35dp"
+                android:background="@drawable/green_box_radius"
+                android:text="SUBMIT"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/text_size16"
+                my_font:typeface="futura_med.ttf" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>
+</LinearLayout>

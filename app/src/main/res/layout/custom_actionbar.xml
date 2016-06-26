@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:my_font="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.fruitland.fruitland.widget"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorThemeGreen">
+
+    <com.fruitland.fruitland.widget.MyTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#ffffff"
+        android:textSize="@dimen/text_size16"
+        android:id="@+id/title"
+        android:layout_centerInParent="true"
+        my_font:typeface="segoeui.ttf"
+        android:text="LOGIN" />
+
+    <ImageView
+        android:id="@+id/expanded_menu"
+        android:padding="10dp"
+        android:src="@drawable/menu_icon"
+        android:visibility="visible"
+        android:layout_width="60dp"
+        android:layout_height="60dp" />
+
+    <ImageView
+        android:id="@+id/filter"
+        android:src="@drawable/filter"
+        android:visibility="gone"
+        android:layout_centerVertical="true"
+        android:padding="10dp"
+        android:layout_marginRight="5dp"
+        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <com.fruitland.fruitland.widget.MyTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorThemeYellow"
+        android:textSize="@dimen/text_size16"
+        android:id="@+id/maptext"
+        android:visibility="gone"
+        android:layout_centerVertical="true"
+        android:padding="5dp"
+        android:layout_toLeftOf="@+id/filter"
+        my_font:typeface="segoeui.ttf"
+        android:text="MAP" />
+
+    <com.fruitland.fruitland.widget.MyTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorThemeYellow"
+        android:textSize="@dimen/text_size16"
+        android:id="@+id/nexttext"
+        android:layout_marginRight="10dp"
+        android:visibility="gone"
+        android:layout_centerVertical="true"
+        android:padding="5dp"
+        android:layout_alignParentRight="true"
+        my_font:typeface="segoeui.ttf"
+        android:text="NEXT" />
+
+</RelativeLayout>

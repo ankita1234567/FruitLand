@@ -1,0 +1,128 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.fruitland.fruitland">
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <application
+        android:allowBackup="true"
+        android:label="@string/app_name"
+        android:icon="@drawable/fruitland_logo"
+        android:theme="@style/AppTheme">
+
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyAFJJn7JkKcLyvYekeW76v2F1vQczGs_Gc"/>
+
+        <activity
+            android:name=".activity.SplashActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+
+        <activity
+            android:name=".activity.Pending_Delivery"
+            android:screenOrientation="portrait">
+
+        </activity>
+        <activity
+            android:name=".activity.LoginActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activity.Create_Basket"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.PaymentHistoryDetails_Activity"
+            android:screenOrientation="portrait" />
+
+
+        <activity
+            android:name=".activity.CreateBasketListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.Add_PurchaseDetails"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden"/>
+
+        <activity
+            android:name=".activity.Delivery_CustomerDetails"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.Signature_Activity"
+            android:screenOrientation="portrait" />
+
+
+        <activity
+            android:name=".activity.AddCustomerActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.HomeActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activity.CustomerDetailsActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activity.Add_Delivery"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activity.Payment_Activity"
+            android:screenOrientation="portrait" />
+
+
+        <activity
+            android:name=".activity.Purchase_Details"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activity.View_PurchaseDetails"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden"/>
+
+        <activity
+            android:name=".activity.Message_Activity"
+            android:screenOrientation="portrait" />
+
+
+        <activity
+            android:name=".activity.Feedback_Activity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activity.Feedback_Details"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activity.Delivery_Activity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activity.View_PurchaseDetailsList"
+            android:screenOrientation="portrait" />
+
+
+        <activity
+            android:name=".activity.View_Delivery"
+            android:screenOrientation="portrait" />
+
+    </application>
+
+</manifest>

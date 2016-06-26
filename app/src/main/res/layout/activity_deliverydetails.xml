@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorThemeGrey"
+    xmlns:my_font="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.fruitland.fruitland.widget">
+
+    <include
+        layout="@layout/custom_actionbar"
+        android:layout_height="50dp"
+        android:layout_width="fill_parent" />
+
+
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_margin="20dp"
+        android:orientation="horizontal"
+        android:background="@drawable/white_box_5radius"
+        android:weightSum="10">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_weight="0.3"
+            android:background="@drawable/red_box_10leftradius"
+            android:layout_height="400dp" />
+
+
+        <LinearLayout
+            android:layout_height="fill_parent"
+            android:layout_width="0dp"
+            android:layout_margin="10dp"
+            android:layout_weight="9.7"
+            android:orientation="vertical">
+
+            <com.fruitland.fruitland.widget.MyTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/profile"
+                android:drawablePadding="15dp"
+                android:textColor="@color/colorTextDarkGrey"
+                android:textSize="@dimen/text_size16"
+                android:id="@+id/name"
+                my_font:typeface="futura_med.ttf"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="15dp"
+                android:text="John Doe" />
+
+            <com.fruitland.fruitland.widget.MyTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/call"
+                android:drawablePadding="15dp"
+                android:id="@+id/contact"
+                android:textColor="@color/colorTextDarkGrey"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="15dp"
+                android:textSize="@dimen/text_size16"
+                my_font:typeface="futura_med.ttf"
+                android:text="9123456780" />
+
+            <com.fruitland.fruitland.widget.MyTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/location"
+                android:drawablePadding="15dp"
+                android:id="@+id/address"
+                android:textColor="@color/colorTextDarkGrey"
+                android:layout_marginTop="20dp"
+                android:textSize="@dimen/text_size16"
+                android:layout_marginLeft="15dp"
+                my_font:typeface="futura_med.ttf"
+                android:text="Karve Nagar,Pune" />
+
+            <com.fruitland.fruitland.widget.MyTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/basket"
+                android:drawablePadding="15dp"
+                android:textColor="@color/colorTextDarkGrey"
+                android:layout_marginTop="20dp"
+                android:id="@+id/packages"
+                android:layout_marginLeft="15dp"
+                android:textSize="@dimen/text_size16"
+                my_font:typeface="futura_med.ttf"
+                android:text="Exotica" />
+
+            <com.fruitland.fruitland.widget.MyTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/fruitavoided"
+                android:drawablePadding="15dp"
+                android:textColor="@color/colorTextDarkGrey"
+                android:layout_marginTop="20dp"
+                android:id="@+id/fruitsavoided"
+                android:layout_marginLeft="15dp"
+                android:textSize="@dimen/text_size16"
+                my_font:typeface="futura_med.ttf"
+                android:text="Fruits Avoided: Chikku, Grapes" />
+
+            <com.fruitland.fruitland.widget.MyTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorTextDarkGrey"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="15dp"
+                android:drawableLeft="@drawable/paymentdetails"
+                android:drawablePadding="15dp"
+                android:textSize="@dimen/text_size16"
+                my_font:typeface="futura_med.ttf"
+                android:text="Payment Details" />
+
+
+            <com.fruitland.fruitland.widget.MyFontButton
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:id="@+id/deliver"
+                android:textColor="@color/colorWhite"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="35dp"
+                android:textSize="@dimen/text_size16"
+                android:background="@drawable/orange_box_radius"
+                my_font:typeface="futura_med.ttf"
+                android:text="Deliver" />
+
+            <com.fruitland.fruitland.widget.MyFontButton
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:id="@+id/payndeliver"
+                android:textColor="@color/colorWhite"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="15dp"
+                android:textSize="@dimen/text_size16"
+                android:background="@drawable/yellow_box_radius"
+                my_font:typeface="futura_med.ttf"
+                android:text="Pay and Deliver" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+</LinearLayout>

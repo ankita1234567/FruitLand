@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:descendantFocusability="beforeDescendants"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorThemeGrey"
+    xmlns:my_font="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.fruitland.fruitland.widget">
+
+    <include
+        layout="@layout/custom_actionbar"
+        android:layout_height="50dp"
+        android:layout_width="fill_parent" />
+
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+
+        <com.fruitland.fruitland.widget.MyTextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/profile"
+            android:drawablePadding="15dp"
+            android:paddingLeft="10dp"
+            android:singleLine="true"
+            android:paddingBottom="10dp"
+            android:id="@+id/name"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="35dp"
+            android:paddingRight="20dp"
+            android:paddingTop="10dp"
+            android:background="@drawable/white_box_radius"
+            android:textColor="@color/colorTextDarkGrey"
+            android:textSize="@dimen/text_size16"
+            my_font:typeface="futura_med.ttf"
+            android:hint="John Doe" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:background="@drawable/white_box_radius"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="15dp"
+            android:paddingRight="20dp"
+            android:paddingTop="10dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+
+            <com.fruitland.fruitland.widget.MyTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/rate"
+                android:drawablePadding="15dp"
+                android:paddingLeft="10dp"
+                android:singleLine="true"
+                android:paddingBottom="10dp"
+                android:id="@+id/rating"
+                android:textColor="@color/colorTextDarkGrey"
+                android:textSize="@dimen/text_size16"
+                my_font:typeface="futura_med.ttf"
+                android:hint="Rating" />
+
+            <RatingBar
+                android:layout_width="wrap_content"
+                android:paddingBottom="5dp"
+                android:layout_marginLeft="10dp"
+                style="@style/gymRatingBar"
+                android:id="@+id/ratingBar"
+                android:numStars="5"
+                android:rating="3"
+                android:isIndicator="true"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <com.fruitland.fruitland.widget.MyTextView
+            android:layout_width="fill_parent"
+            android:layout_height="100dp"
+            android:drawableLeft="@drawable/comment"
+            android:drawablePadding="15dp"
+            android:paddingLeft="10dp"
+            android:maxLines="4"
+            android:gravity="top"
+            android:paddingBottom="10dp"
+            android:id="@+id/comments"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="15dp"
+            android:paddingRight="20dp"
+            android:paddingTop="10dp"
+            android:background="@drawable/white_box_5radius"
+            android:textColor="@color/colorTextDarkGrey"
+            android:textSize="@dimen/text_size16"
+            my_font:typeface="futura_med.ttf"
+            android:hint="Best Fruits ever" />
+
+
+    </LinearLayout>
+
+</LinearLayout>

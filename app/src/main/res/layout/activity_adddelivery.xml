@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:my_font="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/colorThemeGrey">
+
+    <include
+        layout="@layout/custom_actionbar"
+        android:layout_height="50dp"
+        android:layout_width="fill_parent" />
+
+            <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_margin="10dp"
+        android:id="@+id/filterlay"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:paddingBottom="5dp"
+        android:background="@drawable/lightgrey_box_5radius"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+
+        <Spinner
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="60dp"
+            android:singleLine="true"
+            android:id="@+id/areaspinner"
+            android:layout_marginLeft="5dp"
+            android:entries="@array/areaarray"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="15dp"
+            android:paddingRight="10dp"
+            android:background="@drawable/map"
+            android:textColor="@color/colorTextGrey"
+            android:textSize="@dimen/text_size14"
+
+            />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="2"
+            android:orientation="horizontal">
+
+            <Spinner
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:paddingLeft="40dp"
+                android:singleLine="true"
+                android:entries="@array/montharr"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="10dp"
+                android:paddingRight="10dp"
+                android:id="@+id/monthspinner"
+                android:background="@drawable/month"
+                android:textColor="@color/colorTextGrey"
+                android:textSize="@dimen/text_size14"
+
+                />
+
+            <Spinner
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:paddingLeft="40dp"
+                android:singleLine="true"
+                android:entries="@array/weekarr"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="10dp"
+                android:paddingRight="10dp"
+                android:id="@+id/weekspinner"
+                android:background="@drawable/week"
+                android:textColor="@color/colorTextGrey"
+                android:textSize="@dimen/text_size14"
+
+                />
+        </LinearLayout>
+
+        <com.fruitland.fruitland.widget.MyFontButton
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/btn_ok"
+            android:textColor="@color/colorWhite"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="35dp"
+            android:layout_marginTop="10dp"
+            android:textSize="@dimen/text_size16"
+            android:background="@drawable/red_box_radius"
+            my_font:typeface="futura_med.ttf"
+            android:text="OK" />
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:background="@color/colorTextGrey" />
+
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+
+        <!--<ListView
+            android:layout_width="fill_parent"
+            android:layout_margin="10dp"
+            android:dividerHeight="6dp"
+            android:divider="@android:color/transparent"
+            android:layout_height="fill_parent"
+            android:id="@+id/deliverycustlist"></ListView>-->
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/deliverycustlist"
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/adddeliverybut"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="50dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            app:backgroundTint="@color/colorThemeGreen"
+            android:clickable="true"
+            app:elevation="6dp"
+            app:fabSize="normal"
+            android:src="@drawable/plusicon" />
+    </RelativeLayout>
+
+
+</LinearLayout>

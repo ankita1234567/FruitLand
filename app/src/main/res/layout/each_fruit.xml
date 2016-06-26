@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:gravity="center_horizontal|center_vertical"
+    android:background="@color/colorThemeGrey"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/fruit"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/mango"
+        android:layout_margin="10dp" />
+
+
+    <com.fruitland.fruitland.widget.MyCheckBox
+        android:layout_width="wrap_content"
+        android:id="@+id/fruitcheck"
+        android:buttonTint="@color/colorThemeOrange"
+
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:checked="false" />
+
+</RelativeLayout>

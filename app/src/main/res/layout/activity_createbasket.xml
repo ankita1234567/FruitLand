@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="@color/colorThemeGrey"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        layout="@layout/custom_actionbar"
+        android:layout_height="50dp"
+        android:layout_width="fill_parent" />
+
+<!--
+    <GridView
+        android:layout_width="fill_parent"
+        android:id="@+id/fruitgrid"
+        android:layout_margin="10dp"
+        android:layout_height="fill_parent"
+        android:numColumns="3"
+        android:verticalSpacing="5dp"
+        android:horizontalSpacing="5dp"></GridView>
+-->
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/fruitgrid"
+        android:layout_margin="10dp"
+        android:scrollbars="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+</LinearLayout>

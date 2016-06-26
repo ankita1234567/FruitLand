@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorThemeGrey"
+    xmlns:my_font="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.fruitland.fruitland.widget"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        layout="@layout/custom_actionbar"
+        android:layout_height="50dp"
+        android:id="@+id/actionbar"
+        android:layout_alignParentTop="true"
+        android:layout_width="fill_parent" />
+
+    <!--<LinearLayout
+        android:layout_centerInParent="true"
+        android:background="@color/colorWhite"
+        android:layout_margin="20dp"
+        android:orientation="vertical"
+        android:id="@+id/signlayout"
+        android:layout_below="@+id/actionbar"
+        android:layout_above="@+id/done"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"></LinearLayout>
+-->
+
+
+
+    <com.fruitland.fruitland.widget.MyEditTextView
+        android:layout_width="fill_parent"
+        android:layout_height="200dp"
+        android:drawableLeft="@drawable/comment"
+        android:drawablePadding="15dp"
+        android:paddingLeft="10dp"
+        android:maxLines="4"
+        android:layout_centerInParent="true"
+        android:gravity="top"
+        android:paddingBottom="10dp"
+        android:id="@+id/desc"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="35dp"
+        android:paddingRight="20dp"
+        android:paddingTop="10dp"
+        android:background="@drawable/white_box_5radius"
+        android:textColor="@color/colorTextDarkGrey"
+        android:textSize="@dimen/text_size16"
+        my_font:typeface="futura_med.ttf"
+        android:hint="Refreshing fruits coming this week" />
+
+
+
+    <com.fruitland.fruitland.widget.MyFontButton
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/text_size16"
+        android:layout_margin="20dp"
+        android:id="@+id/clear"
+
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:background="@drawable/red_box_radius"
+        my_font:typeface="futura_med.ttf"
+        android:text="Clear" />
+
+
+    <com.fruitland.fruitland.widget.MyFontButton
+        android:layout_width="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="20dp"
+        android:id="@+id/done"
+
+        android:layout_height="35dp"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/text_size16"
+        android:background="@drawable/green_box_radius"
+        my_font:typeface="futura_med.ttf"
+        android:text="Done" />
+
+
+</RelativeLayout>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorThemeGrey"
+    xmlns:my_font="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.fruitland.fruitland.widget">
+
+    <include
+        layout="@layout/custom_actionbar"
+        android:layout_height="50dp"
+        android:layout_width="fill_parent" />
+
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <ImageView
+            android:layout_centerInParent="true"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_alignParentTop="true"
+            android:id="@+id/logo"
+            android:layout_marginTop="30dp"
+            android:src="@drawable/fruitland_logo" />
+
+        <com.fruitland.fruitland.widget.MyTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorWhite"
+            android:layout_below="@+id/logo"
+            android:layout_marginTop="10dp"
+            android:textSize="@dimen/text_size24"
+            android:layout_centerHorizontal="true"
+            my_font:typeface="futuraitalicfont.ttf"
+            android:text="FruitLand" />
+
+        <com.fruitland.fruitland.widget.MyEditTextView
+            android:layout_width="fill_parent"
+            android:id="@+id/edt_username"
+            android:layout_height="40dp"
+            android:drawableLeft="@drawable/username"
+            android:drawablePadding="10dp"
+
+            android:textColor="@color/colorThemeGrey"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:hint="Username"
+            android:inputType="textEmailAddress"
+            android:singleLine="true"
+            android:layout_centerInParent="true"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:textSize="@dimen/text_size14"
+            android:background="@drawable/white_box_radius" />
+
+        <com.fruitland.fruitland.widget.MyEditTextView
+            android:layout_width="fill_parent"
+            android:id="@+id/edt_password"
+            android:inputType="textPassword"
+            android:singleLine="true"
+            android:drawableLeft="@drawable/passwrd"
+            android:drawablePadding="10dp"
+            android:layout_height="40dp"
+            android:textColor="@color/colorThemeGrey"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_below="@+id/edt_username"
+            android:hint="Password"
+            android:layout_centerInParent="true"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:layout_marginTop="20dp"
+
+            android:textSize="@dimen/text_size14"
+            android:background="@drawable/white_box_radius" />
+
+        <com.fruitland.fruitland.widget.MyFontButton
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:id="@+id/btn_login"
+            android:textColor="@color/colorWhite"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_below="@+id/edt_password"
+            android:layout_marginTop="20dp"
+            android:textSize="@dimen/text_size16"
+            android:background="@drawable/green_box_radius"
+            android:layout_centerHorizontal="true"
+            my_font:typeface="segoeui.ttf"
+            android:text="Sign In" />
+
+
+    </RelativeLayout>
+</LinearLayout>

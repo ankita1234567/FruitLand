@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="areaarray">
+        <item>Sinhagad Road</item>
+        <item>Peth Area</item>
+        <item>Aundh</item>
+        <item>Bavdhan</item>
+        <item>Kothrud</item>
+        <item>Prabhat Road</item>
+    </string-array>
+
+    <string-array name="montharr">
+        <item>Month</item>
+        <item>Jan</item>
+        <item>Feb</item>
+        <item>March</item>
+        <item>April</item>
+        <item>May</item>
+        <item>June</item>
+        <item>July</item>
+        <item>Aug</item>
+        <item>Sept</item>
+        <item>Oct</item>
+        <item>Nov</item>
+        <item>Dec</item>
+    </string-array>
+
+    <string-array name="weekarr">
+        <item>Week</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+
+    <string-array name="unit">
+    <item>/Kg</item>
+    <item>/Dz</item>
+    </string-array>
+
+
+    <string-array name="fruitsarr">
+        <item>Apple</item>
+        <item>Chikoo</item>
+        <item>Peer</item>
+        <item>Pomegranate</item>
+        <item>Sweetlime</item>
+        <item>Orange</item>
+        <item>Muskmelon</item>
+        <item>Papaya</item>
+        <item>Watermelon</item>
+        <item>Litchi</item>
+        <item>Jammon</item>
+        <item>Mango</item>
+
+    </string-array>
+
+
+    <array name="fruits_picture">
+        <item>@drawable/apple_small</item>
+        <item>@drawable/peer_small</item>
+        <item>@drawable/pomogranate_small</item>
+        <item>@drawable/chikoo_small</item>
+        <item>@drawable/sweetlime_small</item>
+        <item>@drawable/orange_small</item>
+        <item>@drawable/muskmelon_small</item>
+        <item>@drawable/papaya_small</item>
+        <item>@drawable/watermelom_small</item>`
+        <item>@drawable/litchi_small</item>
+        <item>@drawable/jammon_small</item>
+        <item>@drawable/mango_small</item>
+
+
+    </array>
+
+</resources>

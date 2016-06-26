@@ -1,0 +1,855 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:descendantFocusability="beforeDescendants"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorThemeGrey"
+    xmlns:my_font="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.fruitland.fruitland.widget">
+
+    <include
+        layout="@layout/custom_actionbar"
+        android:layout_height="50dp"
+        android:layout_width="fill_parent" />
+
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+            <com.fruitland.fruitland.widget.MyTextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/date"
+                android:drawablePadding="15dp"
+                android:paddingLeft="10dp"
+                android:singleLine="true"
+                android:paddingBottom="10dp"
+                android:id="@+id/date"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="35dp"
+                android:paddingRight="20dp"
+                android:paddingTop="10dp"
+                android:background="@drawable/white_box_radius"
+                android:textColor="@color/colorTextDarkGrey"
+                android:textSize="@dimen/text_size16"
+                my_font:typeface="futura_med.ttf"
+                android:hint="Date" />
+
+            <com.fruitland.fruitland.widget.MyEditTextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/amount"
+                android:drawablePadding="15dp"
+                android:paddingLeft="10dp"
+                android:singleLine="true"
+                android:paddingBottom="10dp"
+                android:inputType="numberDecimal"
+                android:id="@+id/total"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="15dp"
+                android:paddingRight="20dp"
+                android:paddingTop="10dp"
+                android:background="@drawable/white_box_radius"
+                android:textColor="@color/colorTextDarkGrey"
+                android:textSize="@dimen/text_size16"
+                my_font:typeface="futura_med.ttf"
+                android:hint="Total Amount" />
+
+            <com.fruitland.fruitland.widget.MyEditTextView
+                android:layout_width="fill_parent"
+                android:layout_height="100dp"
+                android:drawableLeft="@drawable/description"
+                android:drawablePadding="15dp"
+                android:paddingLeft="10dp"
+                android:maxLines="4"
+                android:gravity="top"
+                android:paddingBottom="10dp"
+                android:id="@+id/desc"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="15dp"
+                android:paddingRight="20dp"
+                android:paddingTop="10dp"
+                android:background="@drawable/white_box_5radius"
+                android:textColor="@color/colorTextDarkGrey"
+                android:textSize="@dimen/text_size16"
+                my_font:typeface="futura_med.ttf"
+                android:hint="Description" />
+
+
+            <com.fruitland.fruitland.widget.MyTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/text_size16"
+                android:id="@+id/title"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:layout_marginTop="15dp"
+                my_font:typeface="segoeui.ttf"
+                android:text="Fruit Details" />
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/white_box_5radius"
+                android:layout_height="wrap_content">
+
+                <TableLayout
+                    android:layout_width="fill_parent"
+                    android:id="@+id/fruitstable"
+                    android:divider="@color/colorThemeGrey"
+                    android:layout_height="wrap_content">
+
+                    <TableRow>
+
+                        <TextView
+                            android:layout_weight="1"
+                            android:layout_width="wrap_content"
+                            android:layout_margin="10dp"
+                            android:gravity="center_horizontal"
+                            android:layout_height="wrap_content"
+                            android:text="Fruit" />
+
+                        <TextView
+                            android:layout_weight="1"
+                            android:layout_margin="10dp"
+                            android:gravity="left"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Rate" />
+
+                        <TextView
+                            android:layout_weight="1"
+                            android:layout_margin="10dp"
+                            android:gravity="left"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Qty" />
+
+
+
+
+                    </TableRow>
+
+                    <TableRow>
+
+                        <View
+                            android:id="@+id/line1"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dip"
+                            android:layout_weight="1"
+                            android:background="#FF909090"
+                            android:padding="2dip" />
+                    </TableRow>
+
+                    <TableRow android:layout_marginTop="5dp"
+                        android:id="@+id/mangorow">
+
+                        <LinearLayout
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal">
+
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:src="@drawable/mango_small" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_weight="1"
+                            android:weightSum="2"
+                            android:orientation="horizontal"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal">
+
+                            <com.fruitland.fruitland.widget.MyEditTextView
+                                android:singleLine="true"
+                                android:textSize="@dimen/text_size14"
+                                android:id="@+id/mangorate"
+                                android:inputType="numberDecimal"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="fill_parent" />
+
+                            <Spinner
+                                android:background="@color/colorWhite"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:id="@+id/mangounit"
+                                android:entries="@array/unit"
+                                android:layout_height="fill_parent"></Spinner>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_weight="1"
+                            android:orientation="horizontal"
+                            android:layout_height="fill_parent"
+                            android:gravity="center_horizontal">
+
+                            <com.fruitland.fruitland.widget.MyEditTextView
+                                android:singleLine="true"
+                                android:textSize="@dimen/text_size14"
+                                android:id="@+id/mangoqty"
+                                android:inputType="numberDecimal"
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent" />
+                        </LinearLayout>
+
+
+                    </TableRow>
+
+                    <TableRow android:layout_marginTop="5dp"
+                        android:id="@+id/applerow">
+
+                        <LinearLayout
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal">
+
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:src="@drawable/apple_small" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_weight="1"
+                            android:weightSum="2"
+                            android:orientation="horizontal"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal">
+
+                            <com.fruitland.fruitland.widget.MyEditTextView
+                                android:layout_width="0dp"
+                                android:singleLine="true"
+                                android:inputType="numberDecimal"
+                                android:textSize="@dimen/text_size14"
+                                android:id="@+id/applerate"
+                                android:layout_weight="1"
+                                android:layout_height="fill_parent" />
+
+                            <Spinner
+                                android:background="@color/colorWhite"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:entries="@array/unit"
+                                android:id="@+id/appleunit"
+                                android:layout_height="fill_parent"></Spinner>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_weight="1"
+                            android:orientation="horizontal"
+                            android:layout_height="fill_parent"
+                            android:gravity="center_horizontal">
+
+                            <com.fruitland.fruitland.widget.MyEditTextView
+                                android:layout_width="fill_parent"
+                                android:singleLine="true"
+                                android:textSize="@dimen/text_size14"
+                                android:inputType="numberDecimal"
+                                android:id="@+id/appleqty"
+                                android:layout_height="fill_parent" />
+                        </LinearLayout>
+
+
+                    </TableRow>
+
+                    <TableRow android:layout_marginTop="5dp"
+                        android:id="@+id/muskrow">
+
+                        <LinearLayout
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal">
+
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:src="@drawable/muskmelon_small" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_weight="1"
+                            android:weightSum="2"
+                            android:orientation="horizontal"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal">
+
+                            <com.fruitland.fruitland.widget.MyEditTextView
+                                android:layout_width="0dp"
+                                android:singleLine="true"
+                                android:inputType="numberDecimal"
+                                android:textSize="@dimen/text_size14"
+                                android:id="@+id/muskrate"
+                                android:layout_weight="1"
+                                android:layout_height="fill_parent" />
+
+                            <Spinner
+                                android:background="@color/colorWhite"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:entries="@array/unit"
+                                android:id="@+id/muskunit"
+                                android:layout_height="fill_parent"></Spinner>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_weight="1"
+                            android:orientation="horizontal"
+                            android:layout_height="fill_parent"
+                            android:gravity="center_horizontal">
+
+                            <com.fruitland.fruitland.widget.MyEditTextView
+                                android:layout_width="fill_parent"
+                                android:singleLine="true"
+                                android:textSize="@dimen/text_size14"
+                                android:inputType="numberDecimal"
+                                android:id="@+id/muskqty"
+                                android:layout_height="fill_parent" />
+                        </LinearLayout>
+
+
+                    </TableRow>
+
+                    <TableRow android:layout_marginTop="5dp"
+                        android:id="@+id/pomerow">
+
+                        <LinearLayout
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal">
+
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:src="@drawable/pomogranate_small" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_weight="1"
+                            android:weightSum="2"
+                            android:orientation="horizontal"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal">
+
+                            <com.fruitland.fruitland.widget.MyEditTextView
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:singleLine="true"
+                                android:textSize="@dimen/text_size14"
+                                android:id="@+id/pomerate"
+                                android:inputType="numberDecimal"
+                                android:layout_height="fill_parent" />
+
+                            <Spinner
+                                android:background="@color/colorWhite"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:entries="@array/unit"
+                                android:id="@+id/pomeunit"
+                                android:layout_height="fill_parent"></Spinner>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_weight="1"
+                            android:orientation="horizontal"
+                            android:layout_height="fill_parent"
+                            android:gravity="center_horizontal">
+
+                            <com.fruitland.fruitland.widget.MyEditTextView
+                                android:layout_width="fill_parent"
+                                android:singleLine="true"
+                                android:inputType="numberDecimal"
+                                android:textSize="@dimen/text_size14"
+                                android:id="@+id/pomeqty"
+                                android:layout_height="fill_parent" />
+                        </LinearLayout>
+
+
+                    </TableRow>
+
+                    <TableRow android:layout_marginTop="5dp"
+                        android:id="@+id/litchirow">
+
+                        <LinearLayout
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal">
+
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:src="@drawable/litchi_small" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_weight="1"
+                            android:weightSum="2"
+
+                            android:orientation="horizontal"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal">
+
+                            <com.fruitland.fruitland.widget.MyEditTextView
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:inputType="numberDecimal"
+                                android:singleLine="true"
+                                android:textSize="@dimen/text_size14"
+                                android:id="@+id/litchirate"
+                                android:layout_height="fill_parent" />
+
+                            <Spinner
+                                android:background="@color/colorWhite"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:entries="@array/unit"
+                                android:id="@+id/litchiunit"
+                                android:layout_height="fill_parent"></Spinner>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_weight="1"
+                            android:orientation="horizontal"
+                            android:layout_height="fill_parent"
+                            android:gravity="center_horizontal">
+
+                            <com.fruitland.fruitland.widget.MyEditTextView
+                                android:layout_width="fill_parent"
+                                android:singleLine="true"
+                                android:textSize="@dimen/text_size14"
+                                android:inputType="numberDecimal"
+                                android:id="@+id/litchiqty"
+                                android:layout_height="fill_parent" />
+                        </LinearLayout>
+
+
+                    </TableRow>
+
+                    <TableRow android:layout_marginTop="5dp"
+                        android:id="@+id/papayarow">
+
+                        <LinearLayout
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal">
+
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:src="@drawable/papaya_small" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_weight="1"
+                            android:weightSum="2"
+                            android:orientation="horizontal"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal">
+
+                            <com.fruitland.fruitland.widget.MyEditTextView
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:singleLine="true"
+                                android:textSize="@dimen/text_size14"
+                                android:inputType="numberDecimal"
+                                android:id="@+id/papayarate"
+                                android:layout_height="fill_parent" />
+
+                            <Spinner
+                                android:background="@color/colorWhite"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:entries="@array/unit"
+                                android:id="@+id/papayaunit"
+                                android:layout_height="fill_parent"></Spinner>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_weight="1"
+                            android:orientation="horizontal"
+                            android:layout_height="fill_parent"
+                            android:gravity="center_horizontal">
+
+                            <com.fruitland.fruitland.widget.MyEditTextView
+                                android:layout_width="fill_parent"
+                                android:singleLine="true"
+                                android:inputType="numberDecimal"
+                                android:textSize="@dimen/text_size14"
+                                android:id="@+id/papayaqty"
+                                android:layout_height="fill_parent" />
+                        </LinearLayout>
+
+
+                    </TableRow>
+
+                    <TableRow android:layout_marginTop="5dp"
+                        android:id="@+id/jammonrow">
+
+                        <LinearLayout
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal">
+
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:src="@drawable/jammon_small" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_weight="1"
+                            android:weightSum="2"
+                            android:orientation="horizontal"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal">
+
+                            <com.fruitland.fruitland.widget.MyEditTextView
+                                android:layout_width="0dp"
+                                android:singleLine="true"
+                                android:inputType="numberDecimal"
+                                android:textSize="@dimen/text_size14"
+                                android:id="@+id/jammonrate"
+                                android:layout_weight="1"
+                                android:layout_height="fill_parent" />
+
+                            <Spinner
+                                android:background="@color/colorWhite"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:entries="@array/unit"
+                                android:id="@+id/jammonunit"
+                                android:layout_height="fill_parent"></Spinner>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_weight="1"
+                            android:orientation="horizontal"
+                            android:layout_height="fill_parent"
+                            android:gravity="center_horizontal">
+
+                            <com.fruitland.fruitland.widget.MyEditTextView
+                                android:layout_width="fill_parent"
+                                android:singleLine="true"
+                                android:textSize="@dimen/text_size14"
+                                android:inputType="numberDecimal"
+                                android:id="@+id/jammonqty"
+                                android:layout_height="fill_parent" />
+                        </LinearLayout>
+
+
+                    </TableRow>
+
+                    <TableRow android:layout_marginTop="5dp"
+                        android:id="@+id/peerrow">
+
+                        <LinearLayout
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal">
+
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:src="@drawable/peer_small" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_weight="1"
+                            android:weightSum="2"
+                            android:orientation="horizontal"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal">
+
+                            <com.fruitland.fruitland.widget.MyEditTextView
+                                android:singleLine="true"
+                                android:textSize="@dimen/text_size14"
+                                android:id="@+id/peerrate"
+                                android:inputType="numberDecimal"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="fill_parent" />
+
+                            <Spinner
+                                android:background="@color/colorWhite"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:id="@+id/peerunit"
+                                android:entries="@array/unit"
+                                android:layout_height="fill_parent"></Spinner>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_weight="1"
+                            android:orientation="horizontal"
+                            android:layout_height="fill_parent"
+                            android:gravity="center_horizontal">
+
+                            <com.fruitland.fruitland.widget.MyEditTextView
+                                android:singleLine="true"
+                                android:textSize="@dimen/text_size14"
+                                android:inputType="numberDecimal"
+                                android:id="@+id/peerqty"
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent" />
+                        </LinearLayout>
+
+
+                    </TableRow>
+
+                    <TableRow android:layout_marginTop="5dp"
+                        android:id="@+id/sweetlimerow">
+
+                        <LinearLayout
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal">
+
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:src="@drawable/sweetlime_small" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_weight="1"
+                            android:weightSum="2"
+                            android:orientation="horizontal"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal">
+
+                            <com.fruitland.fruitland.widget.MyEditTextView
+                                android:singleLine="true"
+                                android:textSize="@dimen/text_size14"
+                                android:inputType="numberDecimal"
+                                android:id="@+id/sweetlimerate"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="fill_parent" />
+
+                            <Spinner
+                                android:background="@color/colorWhite"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:id="@+id/sweetlimeunit"
+                                android:entries="@array/unit"
+                                android:layout_height="fill_parent"></Spinner>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_weight="1"
+                            android:orientation="horizontal"
+                            android:layout_height="fill_parent"
+                            android:gravity="center_horizontal">
+
+                            <com.fruitland.fruitland.widget.MyEditTextView
+                                android:singleLine="true"
+                                android:textSize="@dimen/text_size14"
+                                android:inputType="numberDecimal"
+                                android:id="@+id/sweetlimeqty"
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent" />
+                        </LinearLayout>
+
+
+                    </TableRow>
+
+
+                    <TableRow android:layout_marginTop="5dp"
+                        android:id="@+id/orangerow">
+
+                        <LinearLayout
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal">
+
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:src="@drawable/orange_small" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_weight="1"
+                            android:weightSum="2"
+                            android:orientation="horizontal"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal">
+
+                            <com.fruitland.fruitland.widget.MyEditTextView
+                                android:singleLine="true"
+                                android:textSize="@dimen/text_size14"
+                                android:inputType="numberDecimal"
+                                android:id="@+id/orangerate"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="fill_parent" />
+
+                            <Spinner
+                                android:background="@color/colorWhite"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:id="@+id/orangeunit"
+                                android:entries="@array/unit"
+                                android:layout_height="fill_parent"></Spinner>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_weight="1"
+                            android:orientation="horizontal"
+                            android:layout_height="fill_parent"
+                            android:gravity="center_horizontal">
+
+                            <com.fruitland.fruitland.widget.MyEditTextView
+                                android:singleLine="true"
+                                android:textSize="@dimen/text_size14"
+                                android:inputType="numberDecimal"
+                                android:id="@+id/orangeqty"
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent" />
+                        </LinearLayout>
+
+
+                    </TableRow>
+
+                    <TableRow android:layout_marginTop="5dp"
+                        android:id="@+id/chikoorow">
+
+                        <LinearLayout
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal">
+
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:src="@drawable/chikoo_small" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_weight="1"
+                            android:weightSum="2"
+                            android:orientation="horizontal"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal">
+
+                            <com.fruitland.fruitland.widget.MyEditTextView
+                                android:singleLine="true"
+                                android:inputType="numberDecimal"
+                                android:textSize="@dimen/text_size14"
+                                android:id="@+id/chikoorate"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="fill_parent" />
+
+                            <Spinner
+                                android:background="@color/colorWhite"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:id="@+id/chikoounit"
+                                android:entries="@array/unit"
+                                android:layout_height="fill_parent"></Spinner>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_weight="1"
+                            android:orientation="horizontal"
+                            android:layout_height="fill_parent"
+                            android:gravity="center_horizontal">
+
+                            <com.fruitland.fruitland.widget.MyEditTextView
+                                android:singleLine="true"
+                                android:textSize="@dimen/text_size14"
+                                android:id="@+id/chikooqty"
+                                android:inputType="numberDecimal"
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent" />
+                        </LinearLayout>
+
+
+                    </TableRow>
+
+
+                    <TableRow android:layout_marginTop="5dp"
+                        android:id="@+id/watermelonrow">
+
+                        <LinearLayout
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal">
+
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:src="@drawable/watermelom_small" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_weight="1"
+                            android:weightSum="2"
+                            android:orientation="horizontal"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal">
+
+                            <com.fruitland.fruitland.widget.MyEditTextView
+                                android:singleLine="true"
+                                android:textSize="@dimen/text_size14"
+                                android:inputType="numberDecimal"
+                                android:id="@+id/watermelonrate"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="fill_parent" />
+
+                            <Spinner
+                                android:background="@color/colorWhite"
+                                android:layout_width="0dp"
+                                android:id="@+id/watermelonunit"
+                                android:layout_weight="1"
+                                android:entries="@array/unit"
+                                android:layout_height="fill_parent"></Spinner>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_weight="1"
+                            android:orientation="horizontal"
+                            android:layout_height="fill_parent"
+                            android:gravity="center_horizontal">
+
+                            <com.fruitland.fruitland.widget.MyEditTextView
+                                android:singleLine="true"
+                                android:textSize="@dimen/text_size14"
+                                android:inputType="numberDecimal"
+                                android:id="@+id/watermelonqty"
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent" />
+                        </LinearLayout>
+
+                   
+                    </TableRow>
+
+
+                </TableLayout>
+
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
