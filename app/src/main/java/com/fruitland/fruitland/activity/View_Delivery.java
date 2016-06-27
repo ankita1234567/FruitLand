@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.fruitland.fruitland.R;
@@ -28,6 +29,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 
 /**
@@ -36,7 +38,7 @@ import java.util.HashMap;
 public class View_Delivery extends Activity implements View.OnClickListener ,VolleyCompleteListener {
 
 
-
+    Spinner weekspinner, monthspinner, areaspinner;
     Button btn_ok;
     ArrayList<Customer_Bean> customer_list = new ArrayList<>();
     ListView list_customer;
@@ -65,8 +67,20 @@ public class View_Delivery extends Activity implements View.OnClickListener ,Vol
             }
         });
         list_customer = (ListView)findViewById(R.id.viewdeliverycustlist);
+        areaspinner = (Spinner) findViewById(R.id.areaspinner);
+        weekspinner = (Spinner) findViewById(R.id.weekspinner);
+        monthspinner = (Spinner) findViewById(R.id.monthspinner);
+        Calendar c = Calendar.getInstance();
 
-        loadList();
+        int month = c.get(Calendar.MONTH);
+        Log.e("month", month + "");
+        monthspinner.setSelection(month + 1);
+
+        int week = c.get(Calendar.WEEK_OF_MONTH);
+        Log.e("week", week + "");
+        weekspinner.setSelection(week);
+
+      //  loadList();
 
         list_customer.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -86,17 +100,12 @@ public class View_Delivery extends Activity implements View.OnClickListener ,Vol
         });
         btn_ok = (Button) findViewById(R.id.btn_ok);
         btn_ok.setOnClickListener(this);
-   //         getCustomersDelivery();
+         getCustomersDelivery();
 
     }
 
     private void loadList() {
 
-
-        for (int i = 0; i < 10; i++) {
-            Customer_Bean customer_bean = new Customer_Bean();
-            customer_list.add(customer_bean);
-        }
 
 
         viewDelivery_adapter = new ViewDelivery_Adapter(View_Delivery.this, customer_list);
@@ -145,6 +154,7 @@ public class View_Delivery extends Activity implements View.OnClickListener ,Vol
         switch (v.getId()) {
             case R.id.btn_ok:
                 setAnimations();
+                getCustomersDelivery();
                 break;
         }
     }
@@ -158,11 +168,11 @@ public class View_Delivery extends Activity implements View.OnClickListener ,Vol
         }
         Utility.showSimpleProgressDialog(View_Delivery.this, null, "Please Wait...", false);
         HashMap<String, String> map = new HashMap<String, String>();
-        map.put(Const.URL, Const.ServiceType.PENDING_DELIVERY);
-        map.put(Const.Params.REGIONID, "1");
-        map.put(Const.Params.WEEK, "4");
-        map.put(Const.Params.MONTH, "6");
-        new MyVolleyClass(View_Delivery.this, map, Const.ServiceCode.PENDING_DELIVERY, this);
+        map.put(Const.URL, Const.ServiceType.VIEW_DELIVERY);
+        map.put(Const.Params.REGIONID, areaspinner.getSelectedItemPosition() + 1 + "");
+        map.put(Const.Params.WEEK, weekspinner.getSelectedItem().toString());
+        map.put(Const.Params.MONTH, monthspinner.getSelectedItemPosition() + "");
+        new MyVolleyClass(View_Delivery.this, map, Const.ServiceCode.VIEW_DELIVERY, this);
     }
 
 
@@ -172,7 +182,7 @@ public class View_Delivery extends Activity implements View.OnClickListener ,Vol
     public void onTaskCompleted(String response, int serviceCode) {
         switch (serviceCode) {
 
-            case Const.ServiceCode.PENDING_DELIVERY:
+            case Const.ServiceCode.VIEW_DELIVERY:
                 Utility.removeSimpleProgressDialog();
                 Log.e("%%%%%%%%%", response);
                 if (parse.isSuccess(response)) {
@@ -182,31 +192,23 @@ public class View_Delivery extends Activity implements View.OnClickListener ,Vol
                         JSONArray jsonArray = obj.getJSONArray("data");
                         customer_list=new ArrayList<>();
                         customer_list.clear();
-                        for(int i=0;i<jsonArray.length();i++){
+                        for (int i = 0; i < jsonArray.length(); i++) {
                             Customer_Bean customer_bean = new Customer_Bean();
                             JSONObject objdata = jsonArray.getJSONObject(i);
                             customer_bean.setName(objdata.getString("name"));
+                            customer_bean.setCustomer_id(objdata.getString("id"));
                             customer_bean.setContact(objdata.getString("phone"));
                             customer_bean.setAddress(objdata.getString("address"));
-
-                            if(objdata.getString("lat").equals("")){
-                                customer_bean.setLat("0.0");
-                            }else{
-                                customer_bean.setLat(objdata.getString("lat"));
-                            }
-                            if(objdata.getString("lat").equals("")){
-                                customer_bean.setLng("0.0");
-                            }else{
-                                customer_bean.setLng(objdata.getString("lng"));
-                            }
-
+                            customer_bean.setLat(objdata.getString("lat"));
+                            customer_bean.setLng(objdata.getString("lng"));
                             customer_bean.setPackages(objdata.getString("package"));
+                            customer_bean.setChecked(objdata.getInt("is_delivered"));
                             customer_bean.setFruits_avoided(objdata.getString("fruit_avoided"));
-                            customer_bean.setDeliveyid(objdata.getString("delivery_id"));
                             customer_list.add(customer_bean);
 
+
                         }
-                      //  ViewDelivery_Adapter = new ViewDelivery_Adapter(Pending_Delivery.this, customer_list);
+                        //  ViewDelivery_Adapter = new ViewDelivery_Adapter(Pending_Delivery.this, customer_list);
                        // list_customer.setAdapter(ViewDelivery_Adapter);
                         loadList();
 

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+
+    android:background="@drawable/white_box_5radius"
+    xmlns:my_font="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.fruitland.fruitland.widget">
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_height="fill_parent"
+            android:layout_width="fill_parent"
+            android:orientation="horizontal"
+
+            android:weightSum="10">
+
+            <View
+                android:id="@+id/viewcolor"
+                android:layout_width="0dp"
+                android:layout_weight="0.3"
+                android:background="@drawable/yellow_box_10leftradius"
+                android:layout_height="80dp" />
+
+
+            <LinearLayout
+                android:layout_height="fill_parent"
+                android:layout_width="0dp"
+                android:layout_margin="10dp"
+                android:layout_weight="9.7"
+                android:orientation="vertical">
+
+                <com.fruitland.fruitland.widget.MyTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/profile"
+                    android:drawablePadding="15dp"
+                    android:textColor="@color/colorTextDarkGrey"
+                    android:textSize="@dimen/text_size14"
+                    android:id="@+id/name"
+                    android:layout_marginLeft="10dp"
+                    my_font:typeface="futura_med.ttf"
+                    android:text="John Doe" />
+
+                <com.fruitland.fruitland.widget.MyTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:drawableLeft="@drawable/call"
+                    android:drawablePadding="15dp"
+                    android:textColor="@color/colorTextDarkGrey"
+                    android:layout_marginTop="5dp"
+                    android:textSize="@dimen/text_size14"
+                    android:id="@+id/contact"
+                    my_font:typeface="futura_med.ttf"
+                    android:text="9123456780" />
+
+                <com.fruitland.fruitland.widget.MyTextView
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/location"
+                    android:drawablePadding="15dp"
+                    android:id="@+id/address"
+                    android:textColor="@color/colorTextDarkGrey"
+                    android:layout_marginTop="5dp"
+                    android:textSize="@dimen/text_size14"
+                    my_font:typeface="futura_med.ttf"
+                    android:text="Karve Nagar,Pune" />
+
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/pendingicon"
+        android:layout_width="wrap_content"
+        android:layout_marginRight="20dp"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/pending"
+        />
+
+</RelativeLayout>

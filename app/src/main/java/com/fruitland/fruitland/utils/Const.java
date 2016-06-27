@@ -23,6 +23,7 @@ public class Const {
         public static final int VIEW_PURCHASE = 11;
         public static final int CREATE_BASKET = 12;
         public static final int UPDATE_CUSTOMER = 13;
+        public static final int VIEW_DELIVERY = 14;
 
 
 
@@ -61,5 +62,7 @@ public class Const {
         public static final String VIEW_PURCHASE = BASE_URL + "view_all_purchases";
         public static final String CREATE_BASKET = BASE_URL + "get_customer_avoided_fruits";
         public static final String UPDATE_CUSTOMER = BASE_URL + "update_new_customer";
+        public static final String VIEW_DELIVERY = BASE_URL + "view_all_deliveries";
+
     }
 }

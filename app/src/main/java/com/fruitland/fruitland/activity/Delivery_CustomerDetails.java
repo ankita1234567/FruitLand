@@ -81,11 +81,14 @@ public class Delivery_CustomerDetails extends Activity implements View.OnClickLi
             case R.id.deliver:
                 intent = new Intent(getApplicationContext(), Signature_Activity.class);
                 intent.putExtra("deliveryid",customer_bean.getDeliveyid());
+                intent.putExtra("paid","0");
                 startActivity(intent);
                 break;
 
             case R.id.payndeliver:
                 intent = new Intent(getApplicationContext(), Signature_Activity.class);
+                intent.putExtra("deliveryid",customer_bean.getDeliveyid());
+                intent.putExtra("paid","1");
                 startActivity(intent);
 
                 break;

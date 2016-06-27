@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.fruitland.fruitland.R;
@@ -46,7 +47,7 @@ public class ViewDelivery_Adapter extends ArrayAdapter<Customer_Bean> {
 
 		if (convertView == null) {
 			LayoutInflater inflater = activity.getLayoutInflater();
-			convertView = inflater.inflate(R.layout.each_custdelivery, null);
+			convertView = inflater.inflate(R.layout.each_viewcustdelivery, null);
 			view = convertView;
 		} else {
 			view = convertView;
@@ -54,30 +55,38 @@ public class ViewDelivery_Adapter extends ArrayAdapter<Customer_Bean> {
 
         View color = (View) view.findViewById(R.id.viewcolor);
 
-		/*if(hm.getPackages().equals("The Essentials")){
+		if(hm.getPackages().equals("The Essentials")){
+
 
 			color.setBackgroundDrawable(mContext.getResources().getDrawable(R.drawable.red_box_10leftradius));
 		}else if(hm.getPackages().equals("Grand Medley")){
 			color.setBackgroundDrawable(mContext.getResources().getDrawable(R.drawable.green_box_10leftradius));
 		}else if(hm.getPackages().equals("Exotica")){
 			color.setBackgroundDrawable(mContext.getResources().getDrawable(R.drawable.yellow_box_10leftradius));
-		}*/
-        if(position==0||position==3||position==6||position==9){
+		}
+       /* if(position==0||position==3||position==6||position==9){
 			color.setBackgroundDrawable(mContext.getResources().getDrawable(R.drawable.red_box_10leftradius));
         }else if(position==1||position==4||position==7||position==9){
             color.setBackgroundDrawable(mContext.getResources().getDrawable(R.drawable.green_box_10leftradius));
         }else{
             color.setBackgroundDrawable(mContext.getResources().getDrawable(R.drawable.yellow_box_10leftradius));
         }
-
+*/
 		TextView name = (TextView) view.findViewById(R.id.name);
 		TextView contact = (TextView) view.findViewById(R.id.contact);
 		TextView address = (TextView) view.findViewById(R.id.address);
 
-/*
+
 		name.setText(hm.getName());
 		contact.setText(hm.getContact());
-		address.setText(hm.getAddress());*/
+		address.setText(hm.getAddress());
+
+        ImageView pendingicon=(ImageView)view.findViewById(R.id.pendingicon);
+        if(hm.getChecked()==1){
+            pendingicon.setImageResource(R.drawable.more);
+        }else{
+            pendingicon.setImageResource(R.drawable.pending);
+        }
 
 		return view;
 	}

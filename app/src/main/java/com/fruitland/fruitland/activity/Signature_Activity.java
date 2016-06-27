@@ -3,12 +3,17 @@ package com.fruitland.fruitland.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.gesture.GestureOverlayView;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
 import android.os.Bundle;
+import android.util.Base64;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,6 +27,7 @@ import com.fruitland.fruitland.utils.VolleyCompleteListener;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.ByteArrayOutputStream;
 import java.util.HashMap;
 
 /**
@@ -30,11 +36,14 @@ import java.util.HashMap;
 public class Signature_Activity extends Activity implements View.OnClickListener, VolleyCompleteListener {
     ImageView menu;
     TextView title;
-    String delivery_id;
+    String delivery_id,paid="0";
     Button done, clear;
     GestureOverlayView gestureView;
     private Parse parse;
     Boolean sig = false;
+    LinearLayout  ll;
+    Bitmap bm=null;
+    String bitmapstr="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +57,7 @@ public class Signature_Activity extends Activity implements View.OnClickListener
 
         parse = new Parse(this);
         delivery_id = getIntent().getStringExtra("deliveryid");
-
+        paid = getIntent().getStringExtra("paid");
         title = (TextView) findViewById(R.id.title);
         title.setText("SIGNATURE");
         menu = (ImageView) findViewById(R.id.expanded_menu);
@@ -102,12 +111,14 @@ public class Signature_Activity extends Activity implements View.OnClickListener
                     this);
             return;
         }
+
+        getImage();
         Utility.showSimpleProgressDialog(Signature_Activity.this, null, "Please Wait...", false);
         HashMap<String, String> map = new HashMap<String, String>();
         map.put(Const.URL, Const.ServiceType.DELIVERY_FRUIT);
         map.put(Const.Params.DELIVERYID, delivery_id);
-        map.put(Const.Params.ISPAID, "0");
-
+        map.put(Const.Params.ISPAID, paid);
+        map.put("image", bitmapstr);
         new MyVolleyClass(Signature_Activity.this, map, Const.ServiceCode.DELIVERY_FRUIT, this);
     }
 
@@ -132,5 +143,59 @@ public class Signature_Activity extends Activity implements View.OnClickListener
 
                 }
         }
+    }
+
+
+
+
+    public String getStringImage(Bitmap bmp){
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bmp.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+        byte[] imageBytes = baos.toByteArray();
+        String encodedImage = Base64.encodeToString(imageBytes, Base64.DEFAULT);
+        return encodedImage;
+    }
+    private void getImage(){
+        ll=(LinearLayout)findViewById(R.id.signview);
+
+        ViewTreeObserver observer = ll.getViewTreeObserver();
+        observer.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+
+            @Override
+            public void onGlobalLayout() {
+                // TODO Auto-generated method stub
+                bm = Bitmap.createBitmap(ll.getWidth(), ll.getHeight(), Bitmap.Config.ARGB_8888);
+                //   Log.e("path::",""+v.getLayoutParams().width+ v.getLayoutParams().height);
+                Canvas c = new Canvas(bm);
+                ll.layout(0, 0, ll.getWidth(), ll.getHeight());
+                ll.draw(c);
+                ll.getViewTreeObserver().removeGlobalOnLayoutListener(
+                        this);
+            }
+        });
+        bm = Bitmap.createBitmap(gestureView.getDrawingCache());
+        bitmapstr=getStringImage(bm);
+
+/*try{
+        //   bm = Bitmap.createBitmap(gestureView.getDrawingCache());
+        File f = new File(Environment.getExternalStorageDirectory()
+                + File.separator + "androidsignature.png");
+        f.createNewFile();
+        if (f.exists()) {
+            Toast.makeText(Signature_Activity.this, "Signature Saved\nPath::" + f.toString(), Toast.LENGTH_LONG).show();
+            Log.v("path::", f.toString());
+            FileOutputStream os = new FileOutputStream(f);
+            os = new FileOutputStream(f);
+            //compress to specified format (PNG), quality - which is ignored for PNG, and out stream
+            bm.compress(Bitmap.CompressFormat.PNG, 00, os);
+            os.close();
+
+        }
+
+    } catch (Exception e) {
+        // TODO: handle exception
+        Log.v("Gestures", "ffff");
+        e.printStackTrace();
+    }*/
     }
 }

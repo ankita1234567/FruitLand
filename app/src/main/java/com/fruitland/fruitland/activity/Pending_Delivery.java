@@ -17,6 +17,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.fruitland.fruitland.R;
@@ -48,6 +49,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 
@@ -56,6 +58,7 @@ import java.util.List;
  */
 public class Pending_Delivery extends Activity implements View.OnClickListener ,VolleyCompleteListener {
     LinearLayout listdelivery;
+    Spinner weekspinner, monthspinner, areaspinner;
     ArrayList<Double> latistart = new ArrayList<>();
     ArrayList<Double> longistart = new ArrayList<>();
     ArrayList<Double> latiend = new ArrayList<>();
@@ -89,6 +92,18 @@ public class Pending_Delivery extends Activity implements View.OnClickListener ,
         title.setText("PENDING DELIVERIES");
         maptext = (TextView) findViewById(R.id.maptext);
         maptext.setVisibility(View.VISIBLE);
+        areaspinner = (Spinner) findViewById(R.id.areaspinner);
+        weekspinner = (Spinner) findViewById(R.id.weekspinner);
+        monthspinner = (Spinner) findViewById(R.id.monthspinner);
+        Calendar c = Calendar.getInstance();
+
+        int month = c.get(Calendar.MONTH);
+        Log.e("month", month + "");
+        monthspinner.setSelection(month + 1);
+
+        int week = c.get(Calendar.WEEK_OF_MONTH);
+        Log.e("week", week + "");
+        weekspinner.setSelection(week);
 
         filter = (ImageView) findViewById(R.id.filter);
         filter.setVisibility(View.VISIBLE);
@@ -299,9 +314,9 @@ public class Pending_Delivery extends Activity implements View.OnClickListener ,
         Utility.showSimpleProgressDialog(Pending_Delivery.this, null, "Please Wait...", false);
         HashMap<String, String> map = new HashMap<String, String>();
         map.put(Const.URL, Const.ServiceType.PENDING_DELIVERY);
-        map.put(Const.Params.REGIONID, "1");
-        map.put(Const.Params.WEEK, "5");
-        map.put(Const.Params.MONTH, "6");
+        map.put(Const.Params.REGIONID, areaspinner.getSelectedItemPosition() + 1 + "");
+        map.put(Const.Params.WEEK, weekspinner.getSelectedItem().toString());
+        map.put(Const.Params.MONTH, monthspinner.getSelectedItemPosition() + "");
         new MyVolleyClass(Pending_Delivery.this, map, Const.ServiceCode.PENDING_DELIVERY, this);
     }
 
@@ -395,7 +410,6 @@ public class Pending_Delivery extends Activity implements View.OnClickListener ,
     }
 
     private void CreateLink() {
-
         if (!Utility.isNetworkAvailable(Pending_Delivery.this)) {
             Utility.showToast(
                     getResources().getString(R.string.toast_no_internet),

@@ -45,6 +45,7 @@ public class Add_Delivery extends Activity implements View.OnClickListener, Voll
     RecyclerView deliverycustlist;
     String checkeditems = "";
     Spinner weekspinner, monthspinner, areaspinner;
+
     Delivery_RecycleAddAdapter delivery_addadapter;
     ImageView menu, filter;
     TextView title;
