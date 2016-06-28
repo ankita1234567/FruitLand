@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.TextView;
 
 import com.fruitland.fruitland.R;
 import com.fruitland.fruitland.model.PaymentDue_Bean;
@@ -53,16 +54,27 @@ public class PaymentDue_Adapter extends ArrayAdapter<PaymentHistory_Bean> {
 		}
 
         View color = (View) view.findViewById(R.id.viewcolor);
-        if(position==0||position==3||position==6||position==9){
+     /*   if(position==0||position==3||position==6||position==9){
             color.setBackgroundDrawable(mContext.getResources().getDrawable(R.drawable.red_box_10leftradius));
         }else if(position==1||position==4||position==7||position==9){
             color.setBackgroundDrawable(mContext.getResources().getDrawable(R.drawable.green_box_10leftradius));
         }else{
             color.setBackgroundDrawable(mContext.getResources().getDrawable(R.drawable.yellow_box_10leftradius));
         }
+*/
+        if(hm.getPackages().equals("The Essentials")){
 
-	//	TextView name = (TextView) view.findViewById(R.id.docname);
-	//	name.setText(hm.getName());
+            color.setBackgroundDrawable(mContext.getResources().getDrawable(R.drawable.red_box_10leftradius));
+        }else if(hm.getPackages().equals("Grand Medley")){
+            color.setBackgroundDrawable(mContext.getResources().getDrawable(R.drawable.green_box_10leftradius));
+        }else if(hm.getPackages().equals("Exotica")){
+            color.setBackgroundDrawable(mContext.getResources().getDrawable(R.drawable.yellow_box_10leftradius));
+        }
+
+        TextView name = (TextView) view.findViewById(R.id.name);
+		name.setText(hm.getName());
+        TextView amount = (TextView) view.findViewById(R.id.amount);
+        amount.setText("Amount Due: Rs "+hm.getAmount());
 
 		return view;
 	}

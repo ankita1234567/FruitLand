@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.TextView;
 
 import com.fruitland.fruitland.R;
 import com.fruitland.fruitland.model.Customer_Bean;
@@ -55,14 +56,16 @@ public class PaymentHistoryDetails_Adapter extends ArrayAdapter<Customer_Bean> {
         View color = (View) view.findViewById(R.id.viewcolor);
         if(position==0||position==3||position==6||position==9){
             color.setBackgroundDrawable(mContext.getResources().getDrawable(R.drawable.red_box_10leftradius));
-        }else if(position==1||position==4||position==7||position==9){
+        }else if(position==1||position==4||position==7){
             color.setBackgroundDrawable(mContext.getResources().getDrawable(R.drawable.green_box_10leftradius));
         }else{
             color.setBackgroundDrawable(mContext.getResources().getDrawable(R.drawable.yellow_box_10leftradius));
         }
 
-	//	TextView name = (TextView) view.findViewById(R.id.docname);
-	//	name.setText(hm.getName());
+		TextView date = (TextView) view.findViewById(R.id.date);
+        date.setText(hm.getDate());
+        TextView amount = (TextView) view.findViewById(R.id.amount);
+        amount.setText("Amount Paid Rs "+hm.getAmount());
 
 		return view;
 	}

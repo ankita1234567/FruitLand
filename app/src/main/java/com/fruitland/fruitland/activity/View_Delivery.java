@@ -58,7 +58,7 @@ public class View_Delivery extends Activity implements View.OnClickListener ,Vol
     private void initialize() {
         parse = new Parse(View_Delivery.this);
         title = (TextView) findViewById(R.id.title);
-        title.setText("PENDING DELIVERIES");
+        title.setText("VIEW DELIVERIES");
         filter = (ImageView) findViewById(R.id.filter);
         filter.setVisibility(View.VISIBLE);
         filter.setOnClickListener(new View.OnClickListener() {

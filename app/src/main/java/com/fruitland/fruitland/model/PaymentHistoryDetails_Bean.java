@@ -8,16 +8,26 @@ package com.fruitland.fruitland.model;
 
 public class PaymentHistoryDetails_Bean {
 
-    String doc_name;
+    String date;
+    String amount;
 
-
-    public String getName() {
-        return doc_name;
+    public String getAmount() {
+        return amount;
     }
 
-    public void setName(String doc_name) {
-        this.doc_name = doc_name;
+    public String getDate() {
+        return date;
     }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public void setAmount(String amount) {
+        this.amount = amount;
+    }
+
+
 
 
 }
