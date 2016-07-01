@@ -180,7 +180,7 @@ public class MenuClass implements View.OnClickListener {
 
             case R.id.nav_sendmsg:
                 mNav.closeLeftSide();
-                Intent intent6 = new Intent(mActivity, Message_Activity.class);
+                Intent intent6 = new Intent(mActivity, Select_Customer.class);
                 mActivity.startActivity(intent6);
                 mActivity.finish();
                 break;

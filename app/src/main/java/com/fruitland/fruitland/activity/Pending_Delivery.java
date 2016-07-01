@@ -77,6 +77,10 @@ public class Pending_Delivery extends Activity implements View.OnClickListener ,
     TextView title, maptext;
     LinearLayout mapdelivery;
 
+    double latitudemy =0.0;
+    double longitudemy = 0.0;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -87,7 +91,12 @@ public class Pending_Delivery extends Activity implements View.OnClickListener ,
     private void initialize() {
         parse = new Parse(Pending_Delivery.this);
 
+        mGPS = new GPSTracker(this);
+        if (mGPS.canGetLocation()) {
+            latitudemy = mGPS.getLatitude();
+            longitudemy = mGPS.getLongitude();
 
+        }
         title = (TextView) findViewById(R.id.title);
         title.setText("PENDING DELIVERIES");
         maptext = (TextView) findViewById(R.id.maptext);
@@ -188,12 +197,12 @@ public class Pending_Delivery extends Activity implements View.OnClickListener ,
     }
 
     private void loadMap() {
-        mGPS = new GPSTracker(this);
+     /*   mGPS = new GPSTracker(this);
         if (mGPS.canGetLocation()) {
-            double latitude = mGPS.getLatitude();
-            double longitude = mGPS.getLongitude();
+             latitudemy = mGPS.getLatitude();
+             longitudemy = mGPS.getLongitude();
 
-        }
+        }*/
 
 
         if (mMap == null) {
@@ -224,7 +233,7 @@ public class Pending_Delivery extends Activity implements View.OnClickListener ,
 
                         LatLng latLng1 = new LatLng(latitude1, longitude1);
                         Marker marker = mMap.addMarker(markerOptions.icon(BitmapDescriptorFactory.fromResource(R.drawable.marker))
-                                .position(latLng1).title(customer_list.get(i).getName()));
+                                .position(latLng1).title(customer_list.get(i).getName()).snippet("Call: "+customer_list.get(i).getContact()));
                         if (customer_list.get(i).getPackages().equals("The Essentials")) {
 
                             marker.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker_red));
@@ -317,6 +326,8 @@ public class Pending_Delivery extends Activity implements View.OnClickListener ,
         map.put(Const.Params.REGIONID, areaspinner.getSelectedItemPosition() + 1 + "");
         map.put(Const.Params.WEEK, weekspinner.getSelectedItem().toString());
         map.put(Const.Params.MONTH, monthspinner.getSelectedItemPosition() + "");
+        map.put("lat", latitudemy+"");
+        map.put("long", longitudemy+"");
         new MyVolleyClass(Pending_Delivery.this, map, Const.ServiceCode.PENDING_DELIVERY, this);
     }
 
@@ -431,8 +442,8 @@ public class Pending_Delivery extends Activity implements View.OnClickListener ,
 
      //  " https://maps.googleapis.com/maps/api/directions/json?origin=18.500565%2C73.859054&destination=18.510812%2C73.843616&waypoints=via:18.504407%2C73.854802%7Cvia:18.508431%2C73.849656%7Cvia:18.510812%2C73.843616%7Cvia:18.510812%2C73.846008&key=AIzaSyAVSEkSWq5rLVXxXa_bUc5mnULQu-BNWlQ"
 
-        link=link+customer_list.get(0).getLat()+"%2C"+customer_list.get(0).getLng()+"&destination="+customer_list.get(customer_list.size()-1).getLat()+"%2C"+customer_list.get(customer_list.size()-1).getLng()+"&waypoints=" ;
-               for(int i=1;i<customer_list.size()-1;i++){
+        link=link+latitudemy+"%2C"+longitudemy+"&destination="+customer_list.get(customer_list.size()-1).getLat()+"%2C"+customer_list.get(customer_list.size()-1).getLng()+"&waypoints=" ;
+               for(int i=0;i<customer_list.size()-1;i++){
 
                    if(i==customer_list.size()-2){
                        link+="via:"+customer_list.get(i).getLat()+"%2C"+customer_list.get(i).getLng()+"&key=AIzaSyALOeny8DdE1mIu5YEup9PGPq_OcBC9yUU";
