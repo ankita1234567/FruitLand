@@ -76,6 +76,9 @@
                 my_font:typeface="futura_med.ttf"
                 android:text="Karve Nagar,Pune" />
 
+
+
+
             <com.fruitland.fruitland.widget.MyTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

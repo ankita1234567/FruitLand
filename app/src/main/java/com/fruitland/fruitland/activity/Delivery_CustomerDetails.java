@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.fruitland.fruitland.R;
@@ -25,14 +26,16 @@ import java.util.HashMap;
 /**
  * Created by Admin on 4/3/2016.
  */
-public class Delivery_CustomerDetails extends Activity implements View.OnClickListener,VolleyCompleteListener {
+public class Delivery_CustomerDetails extends Activity implements View.OnClickListener, VolleyCompleteListener {
     ImageView menu;
-    TextView title,name,contact,address,packages,fruitsavoided;
+    TextView title, name, contact, address, packages, fruitsavoided;
     Button deliver, payndeliver;
     private Parse parse;
 
 
-    Customer_Bean customer_bean; 
+
+    Customer_Bean customer_bean;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,7 +46,7 @@ public class Delivery_CustomerDetails extends Activity implements View.OnClickLi
 
     private void initialize() {
 
-        customer_bean=(Customer_Bean)getIntent().getSerializableExtra("deliverydata");
+        customer_bean = (Customer_Bean) getIntent().getSerializableExtra("deliverydata");
         parse = new Parse(Delivery_CustomerDetails.this);
 
         title = (TextView) findViewById(R.id.title);
@@ -80,15 +83,15 @@ public class Delivery_CustomerDetails extends Activity implements View.OnClickLi
         switch (v.getId()) {
             case R.id.deliver:
                 intent = new Intent(getApplicationContext(), Signature_Activity.class);
-                intent.putExtra("deliveryid",customer_bean.getDeliveyid());
-                intent.putExtra("paid","0");
+                intent.putExtra("deliveryid", customer_bean.getDeliveyid());
+                intent.putExtra("paid", "0");
                 startActivity(intent);
                 break;
 
             case R.id.payndeliver:
                 intent = new Intent(getApplicationContext(), Signature_Activity.class);
-                intent.putExtra("deliveryid",customer_bean.getDeliveyid());
-                intent.putExtra("paid","1");
+                intent.putExtra("deliveryid", customer_bean.getDeliveyid());
+                intent.putExtra("paid", "1");
                 startActivity(intent);
 
                 break;
@@ -111,6 +114,7 @@ public class Delivery_CustomerDetails extends Activity implements View.OnClickLi
 
         new MyVolleyClass(Delivery_CustomerDetails.this, map, Const.ServiceCode.DELIVERY_FRUIT, this);
     }
+
     @Override
     public void onTaskCompleted(String response, int serviceCode) {
         switch (serviceCode) {

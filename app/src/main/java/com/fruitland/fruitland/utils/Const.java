@@ -27,6 +27,7 @@ public class Const {
         public static final int PAYMENT_HISTORY = 15;
         public static final int PAYMENT_DUE = 16;
         public static final int PAYMENT_HISTORYDETAILS = 17;
+        public static final int SEND_MSG = 18;
 
 
 
@@ -69,6 +70,7 @@ public class Const {
         public static final String PAYMENT_HISTORY = BASE_URL + "get_last_payment_history";
         public static final String PAYMENT_DUE = BASE_URL + "get_dues_customers";
         public static final String PAYMENT_HISTORYDETAILS = BASE_URL + "get_payment_history";
+        public static final String SEND_MSG = BASE_URL + "sendSMS";
 
     }
 }

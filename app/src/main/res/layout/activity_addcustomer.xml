@@ -189,7 +189,7 @@
 
                 </LinearLayout>
 
-                <com.fruitland.fruitland.widget.MyEditTextView
+                <com.fruitland.fruitland.widget.MyTextView
                     android:id="@+id/fruitsavoided"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"

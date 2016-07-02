@@ -50,7 +50,7 @@
         android:textColor="@color/colorTextDarkGrey"
         android:textSize="@dimen/text_size16"
         my_font:typeface="futura_med.ttf"
-        android:hint="Refreshing fruits coming this week" />
+        android:text="Refreshing fruits coming this week" />
 
 
 
@@ -75,7 +75,6 @@
         android:layout_alignParentRight="true"
         android:layout_margin="20dp"
         android:id="@+id/done"
-
         android:layout_height="35dp"
         android:textColor="@color/colorWhite"
         android:textSize="@dimen/text_size16"

@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,7 +33,7 @@ import java.util.List;
 public class CustomerDetailsActivity extends Activity implements View.OnClickListener, VolleyCompleteListener {
     ImageView menu;
     TextView title;
-    EditText name, contact, address, fruitsavoided;
+    EditText name, contact, address;
     Button ess, med, exo, btn_addcust;
     FloatingActionButton addcustommer;
     String pkgsel = "";
@@ -40,7 +41,7 @@ public class CustomerDetailsActivity extends Activity implements View.OnClickLis
     String fruitavoided = "";
     Customer_Bean customer_bean;
     CheckBox applecheck, mangocheck, pomecheck, lichicheck, papayacheck, watermeloncheck, muskmeloncheck, pearcheck, chikoocheck, orangecheck, sweetlimecheck, jammoncheck;
-
+Spinner areaspinner;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +52,7 @@ public class CustomerDetailsActivity extends Activity implements View.OnClickLis
 
     private void initialize() {
         parse = new Parse(this);
+        areaspinner=(Spinner)findViewById(R.id.areaspinner);
         customer_bean = new Customer_Bean();
         customer_bean = (Customer_Bean) getIntent().getSerializableExtra("customer");
         title = (TextView) findViewById(R.id.title);
@@ -65,7 +67,7 @@ public class CustomerDetailsActivity extends Activity implements View.OnClickLis
         name = (EditText) findViewById(R.id.name);
         contact = (EditText) findViewById(R.id.contact);
         address = (EditText) findViewById(R.id.address);
-        fruitsavoided = (EditText) findViewById(R.id.fruitsavoided);
+
         ess = (Button) findViewById(R.id.ess);
         ess.setOnClickListener(this);
         med = (Button) findViewById(R.id.med);
@@ -83,6 +85,8 @@ public class CustomerDetailsActivity extends Activity implements View.OnClickLis
         name.setText(customer_bean.getName());
         contact.setText(customer_bean.getContact());
         address.setText(customer_bean.getAddress());
+        areaspinner.setSelection(customer_bean.getRegion_id()-1);
+        areaspinner.setEnabled(false);
 
         if (customer_bean.getPackages().equals("The Essentials")) {
             ess.setBackgroundDrawable(getResources().getDrawable(R.drawable.red_box_radius_black));
@@ -182,6 +186,7 @@ public class CustomerDetailsActivity extends Activity implements View.OnClickLis
 
         map.put(Const.URL, Const.ServiceType.UPDATE_CUSTOMER);
         map.put("address", address.getText().toString());
+        map.put("region_id",areaspinner.getSelectedItemPosition()+1+"");
          map.put("id", customer_bean.getCustomer_id());
         map.put("name", name.getText().toString());
         map.put("phone", contact.getText().toString());
@@ -230,13 +235,15 @@ public class CustomerDetailsActivity extends Activity implements View.OnClickLis
                 name.setEnabled(true);
                 contact.setEnabled(true);
                 address.setEnabled(true);
-                fruitsavoided.setEnabled(true);
+                areaspinner.setEnabled(true);
+
                 break;
 
             case R.id.btn_addcustomer:
                 ess.setClickable(false);
                 med.setClickable(false);
                 exo.setClickable(false);
+                areaspinner.setEnabled(false);
                 checkIsChecked();
                 updateCustomerDetails();
                 btn_addcust.setVisibility(View.GONE);
@@ -245,7 +252,7 @@ public class CustomerDetailsActivity extends Activity implements View.OnClickLis
                 name.setEnabled(false);
                 contact.setEnabled(false);
                 address.setEnabled(false);
-                fruitsavoided.setEnabled(false);
+
                 break;
         }
     }

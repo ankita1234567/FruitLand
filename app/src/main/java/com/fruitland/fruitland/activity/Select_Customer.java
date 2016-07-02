@@ -80,14 +80,10 @@ public class Select_Customer extends Activity implements View.OnClickListener, V
                 setAnimations();
             }
         });
-        menu = (ImageView) findViewById(R.id.expanded_menu);
-        menu.setImageDrawable(getResources().getDrawable(R.drawable.back));
-        menu.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                finish();
-            }
-        });
-        btn_ok = (Button) findViewById(R.id.btn_ok);
+        MenuClass menuclass = new MenuClass();
+        menuclass.simpleSlidingDrawer(this, "message", 7);
+
+         btn_ok = (Button) findViewById(R.id.btn_ok);
         btn_ok.setOnClickListener(this);
         areaspinner = (Spinner) findViewById(R.id.areaspinner);
 
@@ -195,8 +191,7 @@ public class Select_Customer extends Activity implements View.OnClickListener, V
         HashMap<String, String> map = new HashMap<String, String>();
         map.put(Const.URL, Const.ServiceType.CUSTOMER_REGIONWISE);
         map.put(Const.Params.REGIONID, areaspinner.getSelectedItemPosition() + 1 + "");
-        map.put(Const.Params.WEEK, weekspinner.getSelectedItem().toString());
-        map.put(Const.Params.MONTH, monthspinner.getSelectedItemPosition() + "");
+
         new MyVolleyClass(Select_Customer.this, map, Const.ServiceCode.CUSTOMER_REGIONWISE, this);
     }
 
@@ -225,6 +220,7 @@ public class Select_Customer extends Activity implements View.OnClickListener, V
                             customer_bean.setCustomer_id(objdata.getString("id"));
                             customer_bean.setContact(objdata.getString("phone"));
                             customer_bean.setAddress(objdata.getString("address"));
+                            customer_bean.setPackages(objdata.getString("package"));
                             customer_bean.setChecked(0);
                             customer_list.add(customer_bean);
 

@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,9 +33,9 @@ public class AddCustomerActivity extends Activity implements View.OnClickListene
     Parse parse;
     String fruitavoided="";
     TextView title;
-    EditText name, contact, address, fruitsavoided;
+    EditText name, contact, address;
     Button ess, med, exo, btn_addcust;
-
+Spinner areaspinner;
     CheckBox applecheck, mangocheck, pomecheck, lichicheck,papayacheck, watermeloncheck, muskmeloncheck, pearcheck, chikoocheck, orangecheck, sweetlimecheck, jammoncheck;
     String pkgsel = "";
 
@@ -47,6 +48,7 @@ public class AddCustomerActivity extends Activity implements View.OnClickListene
     }
 
     private void initialize() {
+        areaspinner=(Spinner)findViewById(R.id.areaspinner);
         parse = new Parse(AddCustomerActivity.this);
         title = (TextView) findViewById(R.id.title);
         title.setText("ADD CUSTOMER");
@@ -60,7 +62,7 @@ public class AddCustomerActivity extends Activity implements View.OnClickListene
         name = (EditText) findViewById(R.id.name);
         contact = (EditText) findViewById(R.id.contact);
         address = (EditText) findViewById(R.id.address);
-        fruitsavoided = (EditText) findViewById(R.id.fruitsavoided);
+
         ess = (Button) findViewById(R.id.ess);
         ess.setOnClickListener(this);
         med = (Button) findViewById(R.id.med);
@@ -171,6 +173,7 @@ public class AddCustomerActivity extends Activity implements View.OnClickListene
 
         map.put(Const.URL, Const.ServiceType.ADD_CUSTOMER);
         map.put("address", address.getText().toString());
+        map.put("region_id",areaspinner.getSelectedItemPosition()+1+"");
         map.put("name", name.getText().toString());
         map.put("phone", contact.getText().toString());
         if (pkgsel.equals("ess")) {
@@ -219,7 +222,7 @@ public class AddCustomerActivity extends Activity implements View.OnClickListene
                         name.setText("");
                         address.setText("");
                         contact.setText("");
-                        fruitsavoided.setText("");
+
                         pkgsel = "";
                         ess.setBackgroundDrawable(getResources().getDrawable(R.drawable.red_box_radius));
                         med.setBackgroundDrawable(getResources().getDrawable(R.drawable.green_box_radius));

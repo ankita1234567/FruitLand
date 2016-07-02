@@ -45,6 +45,15 @@ public class Customer_Bean implements Serializable {
     String packages;
     String deliveyid;
     String fruits_avoided;
+    int region_id;
+
+    public int getRegion_id() {
+        return region_id;
+    }
+
+    public void setRegion_id(int region_id) {
+        this.region_id = region_id;
+    }
 
     public String getFruits_avoided() {
         return fruits_avoided;

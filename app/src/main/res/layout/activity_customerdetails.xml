@@ -30,7 +30,7 @@
             android:layout_width="0dp"
             android:layout_weight="0.3"
             android:background="@drawable/red_box_10leftradius"
-            android:layout_height="680dp" />
+            android:layout_height="720dp" />
 
 
         <LinearLayout
@@ -103,6 +103,23 @@
                 my_font:typeface="futura_med.ttf"
                 android:hint="Detail Address" />
 
+            <Spinner
+                android:id="@+id/areaspinner"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/map"
+                android:entries="@array/areaarray"
+                android:paddingLeft="60dp"
+                android:paddingRight="10dp"
+                android:singleLine="true"
+                android:textColor="@color/colorTextGrey"
+                android:textSize="@dimen/text_size14"
+
+                />
+
             <com.fruitland.fruitland.widget.MyTextView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
@@ -172,7 +189,7 @@
 
             </LinearLayout>
 
-            <com.fruitland.fruitland.widget.MyEditTextView
+            <com.fruitland.fruitland.widget.MyTextView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/fruitavoided"

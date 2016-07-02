@@ -125,6 +125,7 @@ public class HomeActivity extends Activity implements View.OnClickListener, Voll
                             customer_bean.setContact(objdata.getString("phone"));
                             customer_bean.setAddress(objdata.getString("address"));
                             customer_bean.setPackages(objdata.getString("package"));
+                            customer_bean.setRegion_id(objdata.getInt("region_id"));
                             customer_bean.setFruits_avoided(objdata.getString("fruit_avoided"));
                             customer_list.add(customer_bean);
 
