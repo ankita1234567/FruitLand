@@ -96,7 +96,7 @@ public class Create_Basket extends Activity implements View.OnClickListener {
         for (Integer key : keys) {
             fruitsstr += (key + 1) + ",";
         }
-fruitsstr=fruitsstr.substring(0,fruitsstr.length()-1);
+        fruitsstr = fruitsstr.substring(0, fruitsstr.length() - 1);
         Toast.makeText(getApplicationContext(), fruitsstr, Toast.LENGTH_LONG).show();
 
     }
@@ -105,16 +105,21 @@ fruitsstr=fruitsstr.substring(0,fruitsstr.length()-1);
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.nexttext:
-                Set<Integer> keys = selectedfruits.keySet();
-                for (Integer key : keys) {
-                    System.out.println("Value of " + key + " is: " + selectedfruits.get(key));
+
+                if (selectedfruits.size() > 0) {
+                    Set<Integer> keys = selectedfruits.keySet();
+                    for (Integer key : keys) {
+                        System.out.println("Value of " + key + " is: " + selectedfruits.get(key));
+                    }
+
+                    selectFruits();
+
+                    Intent intent = new Intent(getApplicationContext(), CreateBasketListActivity.class);
+                    intent.putExtra("fruitstr", fruitsstr);
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(getApplicationContext(), "Please select fruit to create basket", Toast.LENGTH_LONG).show();
                 }
-
-                selectFruits();
-
-                Intent intent=new Intent(getApplicationContext(),CreateBasketListActivity.class);
-                intent.putExtra("fruitstr",fruitsstr);
-                startActivity(intent);
                 break;
         }
     }

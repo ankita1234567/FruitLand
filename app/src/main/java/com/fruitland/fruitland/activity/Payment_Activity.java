@@ -58,7 +58,7 @@ public class Payment_Activity extends AppCompatActivity implements View.OnClickL
 
 
         MenuClass menuclass=new MenuClass();
-        menuclass.simpleSlidingDrawer(this,"home",3);
+        menuclass.simpleSlidingDrawer(this,"payment",3);
 
 
     }

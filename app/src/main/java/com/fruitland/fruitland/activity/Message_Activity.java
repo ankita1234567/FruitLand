@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -32,7 +33,8 @@ public class Message_Activity extends Activity implements View.OnClickListener, 
     Button clear, done;
     Parse parse;
     EditText desc;
-String checked_str="";
+    String checked_str = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +43,7 @@ String checked_str="";
     }
 
     private void initialize() {
-        checked_str=getIntent().getStringExtra("checkeditems");
+        checked_str = getIntent().getStringExtra("checkeditems");
         parse = new Parse(this);
         title = (TextView) findViewById(R.id.title);
         title.setText("SEND MESSAGE");
@@ -68,11 +70,19 @@ String checked_str="";
                 desc.setText("");
                 break;
             case R.id.done:
-               if(!desc.getText().toString().equals("")){
-                  sendMessage();
-               }else{
-                   Toast.makeText(getApplicationContext(),"Please enter message",Toast.LENGTH_LONG).show();
-               }
+
+                try {
+                    InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+                } catch (Exception e) {
+
+                }
+
+                if (!desc.getText().toString().equals("")) {
+                    sendMessage();
+                } else {
+                    Toast.makeText(getApplicationContext(), "Please enter message", Toast.LENGTH_LONG).show();
+                }
                 break;
         }
     }
@@ -104,8 +114,8 @@ String checked_str="";
 
                     try {
                         JSONObject obj = new JSONObject(response);
-                        JSONArray jsonArray=obj.getJSONArray("data");
-                        JSONObject jsonObject=jsonArray.getJSONObject(0);
+                        JSONArray jsonArray = obj.getJSONArray("data");
+                        JSONObject jsonObject = jsonArray.getJSONObject(0);
                         Toast.makeText(getApplicationContext(), jsonObject.getString("msg"), Toast.LENGTH_LONG).show();
                         finish();
 

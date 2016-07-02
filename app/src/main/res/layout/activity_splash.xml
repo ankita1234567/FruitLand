@@ -2,14 +2,15 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:background="@color/colorThemeGrey"
+    android:background="@drawable/splash_screen"
     android:layout_height="match_parent"
+
     xmlns:my_font="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.fruitland.fruitland.widget">
 
 
-    <ImageView
+   <!-- <ImageView
         android:layout_centerInParent="true"
         android:layout_width="170dp"
         android:layout_height="170dp"
@@ -25,6 +26,6 @@
         android:textSize="@dimen/text_size24"
         android:layout_centerHorizontal="true"
         my_font:typeface="futuraitalicfont.ttf"
-        android:text="FruitLand" />
+        android:text="FruitLand" />-->
 
 </RelativeLayout>
