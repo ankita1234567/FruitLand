@@ -197,12 +197,12 @@ public class Pending_Delivery extends Activity implements View.OnClickListener ,
     }
 
     private void loadMap() {
-     /*   mGPS = new GPSTracker(this);
+        mGPS = new GPSTracker(this);
         if (mGPS.canGetLocation()) {
              latitudemy = mGPS.getLatitude();
              longitudemy = mGPS.getLongitude();
 
-        }*/
+        }
 
 
         if (mMap == null) {
