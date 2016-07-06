@@ -244,8 +244,8 @@ Spinner areaspinner;
                 med.setClickable(false);
                 exo.setClickable(false);
                 areaspinner.setEnabled(false);
-                checkIsChecked();
-                updateCustomerDetails();
+                validate();
+
                 btn_addcust.setVisibility(View.GONE);
                 addcustommer.setVisibility(View.VISIBLE);
 
@@ -317,6 +317,24 @@ Spinner areaspinner;
             fruitavoided += "8,";
         }
 
+    }
+
+    private void validate() {
+        if (name.equals("")) {
+            Toast.makeText(getApplicationContext(), "Please enter name", Toast.LENGTH_LONG).show();
+        } else if (contact.equals("")) {
+            Toast.makeText(getApplicationContext(), "Please enter contact number", Toast.LENGTH_LONG).show();
+        } else if (contact.length() != 10) {
+            Toast.makeText(getApplicationContext(), "Please enter valid mobile number", Toast.LENGTH_LONG).show();
+        } else if (address.equals("")) {
+            Toast.makeText(getApplicationContext(), "Please enter address", Toast.LENGTH_LONG).show();
+        } else if (pkgsel.equals("")) {
+            Toast.makeText(getApplicationContext(), "Please select package", Toast.LENGTH_LONG).show();
+        } else {
+            checkIsChecked();
+            updateCustomerDetails();
+
+        }
     }
 
 }

@@ -24,7 +24,7 @@ public class FruitsGrid_Adapter extends BaseAdapter {
             R.drawable.sweetlime, R.drawable.orange,
             R.drawable.muskmelon, R.drawable.papya,
             R.drawable.watermelon, R.drawable.litchi,
-            R.drawable.jammon, R.drawable.mango,
+            R.drawable.jammon, R.drawable.mangoanim,
            };
 
     // Constructor

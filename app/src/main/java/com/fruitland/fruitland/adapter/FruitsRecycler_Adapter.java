@@ -23,7 +23,7 @@ public class FruitsRecycler_Adapter extends RecyclerView.Adapter<FruitsRecycler_
             R.drawable.sweetlime, R.drawable.orange,
             R.drawable.muskmelon, R.drawable.papya,
             R.drawable.watermelon, R.drawable.litchi,
-            R.drawable.jammon, R.drawable.mango,
+            R.drawable.jammon, R.drawable.mangoanim,
     };
 
     Create_Basket create_basket;

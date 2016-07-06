@@ -35,6 +35,7 @@ public class HomeActivity extends Activity implements View.OnClickListener, Voll
     SimpleSideDrawer mNavv;
     private Parse parse;
     ImageView menu;
+    ImageView mangoanim;
     TextView title;
     FloatingActionButton addcustomer;
     ArrayList<Customer_Bean> customer_list = new ArrayList<>();
@@ -51,6 +52,8 @@ public class HomeActivity extends Activity implements View.OnClickListener, Voll
     }
 
     private void initialize() {
+
+   //     mangoanim=(ImageView)findViewById(R.id.mangoanim);
         parse = new Parse(HomeActivity.this);
         title = (TextView) findViewById(R.id.title);
         title.setText("HOME");
@@ -99,6 +102,8 @@ public class HomeActivity extends Activity implements View.OnClickListener, Voll
             return;
         }
         Utility.showSimpleProgressDialog(HomeActivity.this, null, "Please Wait...", false);
+  //      mangoanim.setVisibility(View.VISIBLE);
+
         HashMap<String, String> map = new HashMap<String, String>();
         map.put(Const.URL, Const.ServiceType.GET_CUSTOMERS);
         new MyVolleyClass(HomeActivity.this, map, Const.ServiceCode.GET_CUSTOMERS, this);
@@ -110,7 +115,8 @@ public class HomeActivity extends Activity implements View.OnClickListener, Voll
         switch (serviceCode) {
 
             case Const.ServiceCode.GET_CUSTOMERS:
-                Utility.removeSimpleProgressDialog();
+               Utility.removeSimpleProgressDialog();
+            //    mangoanim.setVisibility(View.GONE);
                 Log.i("URL LOGIN RESPONSE", response);
                 if (parse.isSuccess(response)) {
 

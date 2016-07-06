@@ -31,12 +31,12 @@ import java.util.HashMap;
 public class AddCustomerActivity extends Activity implements View.OnClickListener, VolleyCompleteListener {
     ImageView menu;
     Parse parse;
-    String fruitavoided="";
+    String fruitavoided = "";
     TextView title;
     EditText name, contact, address;
     Button ess, med, exo, btn_addcust;
-Spinner areaspinner;
-    CheckBox applecheck, mangocheck, pomecheck, lichicheck,papayacheck, watermeloncheck, muskmeloncheck, pearcheck, chikoocheck, orangecheck, sweetlimecheck, jammoncheck;
+    Spinner areaspinner;
+    CheckBox applecheck, mangocheck, pomecheck, lichicheck, papayacheck, watermeloncheck, muskmeloncheck, pearcheck, chikoocheck, orangecheck, sweetlimecheck, jammoncheck;
     String pkgsel = "";
 
     @Override
@@ -48,7 +48,7 @@ Spinner areaspinner;
     }
 
     private void initialize() {
-        areaspinner=(Spinner)findViewById(R.id.areaspinner);
+        areaspinner = (Spinner) findViewById(R.id.areaspinner);
         parse = new Parse(AddCustomerActivity.this);
         title = (TextView) findViewById(R.id.title);
         title.setText("ADD CUSTOMER");
@@ -89,7 +89,7 @@ Spinner areaspinner;
 
     private void checkIsChecked() {
 
-         fruitavoided = "";
+        fruitavoided = "";
         if (mangocheck.isChecked()) {
             fruitavoided += "12,";
         }
@@ -173,7 +173,7 @@ Spinner areaspinner;
 
         map.put(Const.URL, Const.ServiceType.ADD_CUSTOMER);
         map.put("address", address.getText().toString());
-        map.put("region_id",areaspinner.getSelectedItemPosition()+1+"");
+        map.put("region_id", areaspinner.getSelectedItemPosition() + 1 + "");
         map.put("name", name.getText().toString());
         map.put("phone", contact.getText().toString());
         if (pkgsel.equals("ess")) {
@@ -186,7 +186,7 @@ Spinner areaspinner;
             map.put("package", "Exotica");
         }
 
-        map.put("fruit_avoided", fruitavoided.substring(0,fruitavoided.length()-1));
+        map.put("fruit_avoided", fruitavoided.substring(0, fruitavoided.length() - 1));
         new MyVolleyClass(AddCustomerActivity.this, map, Const.ServiceCode.ADD_CUSTOMER, this);
     }
 
@@ -195,6 +195,8 @@ Spinner areaspinner;
             Toast.makeText(getApplicationContext(), "Please enter name", Toast.LENGTH_LONG).show();
         } else if (contact.equals("")) {
             Toast.makeText(getApplicationContext(), "Please enter contact number", Toast.LENGTH_LONG).show();
+        } else if (contact.length() != 10) {
+            Toast.makeText(getApplicationContext(), "Please enter valid mobile number", Toast.LENGTH_LONG).show();
         } else if (address.equals("")) {
             Toast.makeText(getApplicationContext(), "Please enter address", Toast.LENGTH_LONG).show();
         } else if (pkgsel.equals("")) {
@@ -236,4 +238,6 @@ Spinner areaspinner;
                 }
         }
     }
+
+
 }
